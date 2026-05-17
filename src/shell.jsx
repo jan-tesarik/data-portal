@@ -228,7 +228,7 @@ const Sidebar = ({ page, go, route, collapsed, onToggle }) => {
       )}
 
       {/* Search */}
-      <div style={{ position: 'relative', marginBottom: 14 }}>
+      <div style={{ position: 'relative', marginBottom: 10 }}>
         {collapsed ? (
           <button onClick={onToggle} title="Search" style={{
             width: '100%', height: 34, borderRadius: 8,
@@ -260,6 +260,33 @@ const Sidebar = ({ page, go, route, collapsed, onToggle }) => {
           </>
         )}
       </div>
+
+      {/* Create CTA */}
+      {!collapsed ? (
+        <button onClick={() => go({ page: 'create' })} style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
+          width: '100%', height: 32, marginBottom: 14, borderRadius: 8,
+          background: 'var(--fg)', color: '#fff',
+          fontSize: 12.5, fontWeight: 500, letterSpacing: '-.005em',
+          whiteSpace: 'nowrap',
+          boxShadow: 'var(--shadow-xs)',
+          transition: 'transform .15s ease, opacity .15s ease',
+        }}
+          onMouseEnter={e => e.currentTarget.style.opacity = 0.92}
+          onMouseLeave={e => e.currentTarget.style.opacity = 1}
+        >
+          <Icon name="plus" size={13} stroke={2.2} />
+          Create dashboard
+        </button>
+      ) : (
+        <button onClick={() => go({ page: 'create' })} title="Create dashboard" style={{
+          width: '100%', height: 34, marginBottom: 14, borderRadius: 8,
+          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+          background: 'var(--fg)', color: '#fff',
+        }}>
+          <Icon name="plus" size={14} stroke={2.2} />
+        </button>
+      )}
 
       {/* Nav */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>

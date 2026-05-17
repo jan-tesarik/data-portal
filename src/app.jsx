@@ -29,6 +29,8 @@ const App = () => {
 
   const navPage = (() => {
     if (route.page === 'dashboard-detail') return 'dashboards';
+    if (route.page === 'community-detail') return 'dashboards';
+    if (route.page === 'create')           return 'dashboards';
     if (route.page === 'executive-detail') return 'executive';
     if (route.page === 'metric-detail')    return 'metrics';
     return route.page;
@@ -39,6 +41,8 @@ const App = () => {
     case 'home':              content = <HomePage go={go} />; break;
     case 'dashboards':        content = <DashboardsPage go={go} />; break;
     case 'dashboard-detail':  content = <DashboardDetail id={route.id} go={go} />; break;
+    case 'community-detail':  content = <CommunityDashboardDetail id={route.id} go={go} />; break;
+    case 'create':            content = <CreateDashboard go={go} />; break;
     case 'executive':         content = <ExecutiveList go={go} />; break;
     case 'executive-detail':  content = <ExecutiveDetail id={route.id} go={go} />; break;
     case 'metrics':           content = <MetricsCatalog go={go} />; break;
